@@ -15,17 +15,15 @@
     <footer>
       <div class="row">
         <div class="col-md-9">
-          {% if INDIGO_FOOTER_NAV_LINKS %}
           <nav class="navbar site-nav navbar-expand-sm" aria-label="${_('About')}">
             <ul class="navbar-nav">
-              {% for link in INDIGO_FOOTER_NAV_LINKS %}
+              % for item_num, link in enumerate(footer['navigation_links'], start=1):
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ link['url'] }}">{{ link['title'] }}</a>
+                  <a class="nav-link" href="${link['url']}">${link['title']}</a>
                 </li>
-              {% endfor %}
+              % endfor
             </ul>
           </nav>
-          {% endif %}
 
           ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
           <p class="copyright">${footer['copyright']}
@@ -37,7 +35,7 @@
               % endif
           </p>
 
-          {% if INDIGO_FOOTER_LEGAL_LINKS %}
+<!--           {% if INDIGO_FOOTER_LEGAL_LINKS %}
           <nav class="navbar legal-nav navbar-expand-sm" aria-label="${_('Legal')}">
             <ul class="navbar-nav">
               {% for link in INDIGO_FOOTER_LEGAL_LINKS %}
@@ -47,7 +45,8 @@
               {% endfor %}
             </ul>
           </nav>
-          {% endif %}
+          {% endif %} -->
+          
         </div>
         <div class="col-md-3">
           ## Please leave this link and use one of the logos provided
@@ -57,12 +56,10 @@
           % if not hide_openedx_link:
             <div class="footer-about-openedx">
               <p>
-                <a href="https://docs.tutor.overhang.io" rel="noopener" target="_blank">
-                  <img src="${static.url('images/tutor-logo.png')}" width="140" />
+                <a href="https://magmalms.online" rel="noopener" target="_blank">
+                  <img src="${static.url('images/magama-logo.png')}" width="140" />
                 </a>
-                <a href="${footer['openedx_link']['url']}" rel="noopener" target="_blank">
-                  <img src="${static.url('images/openedx-logo.png')}" alt="${footer['openedx_link']['title']}" width="140" />
-                </a>
+                
               </p>
             </div>
           % endif
@@ -121,17 +118,16 @@
               % endif
           </p>
 
-        {% if INDIGO_FOOTER_LEGAL_LINKS %}
-        <nav class="nav-legal" aria-label="${_('Legal')}">
+           <nav class="nav-legal" aria-label="${_('Legal')}">
           <ul>
-            {% for link in INDIGO_FOOTER_LEGAL_LINKS %}
-              <li>
-                <a href="{{ link['url'] }}">{{ link['title'] }}</a>
+            % for item_num, link in enumerate(footer['legal_links'], start=1):
+              <li class="nav-legal-0${item_num}">
+                <a href="${link['url']}">${link['title']}</a>
               </li>
-            {% endfor %}
+            % endfor
+            <li><a href="${footer['edx_org_link']['url']}">${footer['edx_org_link']['text']}</a></li>
           </ul>
         </nav>
-        {% endif %}
       </div>
 
       ## Please leave this link and use one of the logos provided
@@ -141,12 +137,10 @@
       % if not hide_openedx_link:
       <div class="footer-about-openedx">
         <p>
-          <a href="https://fructox.com" rel="noopener" target="_blank">
-            <img src="${static.url('images/tutor-logo.png')}" height="42" />
+          <a href="https://magmalms.online" rel="noopener" target="_blank">
+            <img src="${static.url('images/magma-logo.png')}" height="42" />
           </a>
-          <a href="${footer['openedx_link']['url']}" rel="noopener" target="_blank">
-            <img src="${static.url('images/openedx-logo.png')}" alt="${footer['openedx_link']['title']}" width="140" />
-          </a>
+          
         </p>
       </div>
       % endif
