@@ -35,7 +35,7 @@
               % endif
           </p>
 
-<!--           {% if INDIGO_FOOTER_LEGAL_LINKS %}
+          {% if INDIGO_FOOTER_LEGAL_LINKS %}
           <nav class="navbar legal-nav navbar-expand-sm" aria-label="${_('Legal')}">
             <ul class="navbar-nav">
               {% for link in INDIGO_FOOTER_LEGAL_LINKS %}
@@ -45,7 +45,7 @@
               {% endfor %}
             </ul>
           </nav>
-          {% endif %} -->
+          {% endif %} 
           
         </div>
         <div class="col-md-3">
@@ -112,9 +112,9 @@
           <p class="copyright">${footer['copyright']}
               % if icp_license_info.get('icp_license'):
                 ${u" | {text}".format(text=icp_license_info.get('text'))}
-<!--                 <a href="${icp_license_info.get('icp_license_link', '#')}">
+          <a href="${icp_license_info.get('icp_license_link', '#')}">
                     ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-                </a> -->
+                </a> 
               % endif
           </p>
 
@@ -122,10 +122,10 @@
           <ul>
             % for item_num, link in enumerate(footer['legal_links'], start=1):
               <li class="nav-legal-0${item_num}">
-<!--                 <a href="${link['url']}">${link['title']}</a> -->
+                 <a href="${link['url']}">${link['title']}</a> -->
               </li>
             % endfor
-<!--             <li><a href="${footer['edx_org_link']['url']}">${footer['edx_org_link']['text']}</a></li> -->
+           <li><a href="${footer['edx_org_link']['url']}">${footer['edx_org_link']['text']}</a></li> -->
           </ul>
         </nav>
       </div>
